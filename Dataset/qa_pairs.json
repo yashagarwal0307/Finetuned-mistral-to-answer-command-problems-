@@ -1,0 +1,802 @@
+[
+  {
+    "question": "Useful when you forget to use sudo for a command.  \"!!\" grabs the last run command.",
+    "answer": "sudo !!"
+  },
+  {
+    "question": "This Python command, using the module SimpleHTTPServer, creates a basic web server that serves the current directory and its contents over HTTP on port 8000. When executed, it allows anyone with access to the specified URL (in this case, http://$HOSTNAME:8000/) to view and download files from the current directory as if it were a simple website.",
+    "answer": "python -m SimpleHTTPServer"
+  },
+  {
+    "question": "Really useful for when you have a typo in a previous command.  Also, arguments default to empty so if you accidentally run:\necho \"no typozs\"\nyou can correct it with\n^z",
+    "answer": "^foo^bar"
+  },
+  {
+    "question": "Next time you are using your shell, try typing ctrl-x e (that is holding control key press x and then e). The shell will take what you've written on the command line thus far and paste it into the editor specified by $EDITOR. Then you can edit at leisure using all the powerful macros and commands of vi, emacs, nano, or whatever.",
+    "answer": "ctrl-x e"
+  },
+  {
+    "question": "When typing out long arguments, such as:\ncp file.txt /var/www/wp-content/uploads/2009/03/\nYou can put that argument on your command line by holding down the ALT key and pressing the period '.' or by pressing <ESC> then the period '.'. For example:\ncd 'ALT+.'\nwould put '/var/www/wp-content/uploads/2009/03/ as my argument. Keeping pressing 'ALT+.' to cycle through arguments of your commands starting from most recent to oldest. This can save a ton of typing.",
+    "answer": "'ALT+.' or '<ESC> .'"
+  },
+  {
+    "question": "Particularly useful if you're mounting different drives, using the following command will allow you to see all the filesystems currently mounted on your computer and their respective specs with the added benefit of nice formatting.",
+    "answer": "mount | column -t"
+  },
+  {
+    "question": "curl ifconfig.me/ip -> IP Adress\ncurl ifconfig.me/host -> Remote Host\ncurl ifconfig.me/ua ->User Agent\ncurl ifconfig.me/port -> Port\nthonks to http://ifconfig.me/",
+    "answer": "curl ifconfig.me"
+  },
+  {
+    "question": "This is an alternative to cron which allows a one-off task to be scheduled for a certain time.",
+    "answer": "echo \"ls -l\" | at midnight"
+  },
+  {
+    "question": "The \"man ascii\" terminal command is used to open the manual page for the ASCII table, providing detailed information about the character encoding standard and its associated characters. This allows users to quickly access and reference the ASCII table when working with text or programming in languages that use this encoding system.",
+    "answer": "man ascii"
+  },
+  {
+    "question": "This will output the sound from your microphone port to the ssh target computer's speaker port. The sound quality is very bad, so you will hear a lot of hissing.",
+    "answer": "dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp"
+  },
+  {
+    "question": "Example :\nvim /etc/fstab\n## damn\n<ctrl+u>\nsudo <ctrl+y>\n## like a boss.\nExample 2 : \nsudo vim /root/bin/   \n##uh... autocomplete doesn't work...  \n<ctrl+u>\nsudo ls /root/bin\n##ah! that's the name of the file!  \n<ctrl+y> sudo vim /root/bin/  ##resume here! Thanks readline!",
+    "answer": "<ctrl+u> [...] <ctrl+y>"
+  },
+  {
+    "question": "Query Wikipedia by issuing a DNS query for a TXT record. The TXT record will also include a short URL to the complete corresponding Wikipedia entry.You can also write a little shell script like:\n$ cat wikisole.sh\n#!/bin/sh\ndig +short txt ${1}.wp.dg.cx\nand run it like\n./wikisole.sh unix\nwere your first option ($1) will be used as search term.",
+    "answer": "dig +short txt <keyword>.wp.dg.cx"
+  },
+  {
+    "question": "Install SSHFS from http://fuse.sourceforge.net/sshfs.html\nWill allow you to mount a folder security over a network.",
+    "answer": "sshfs name@server:/path/to/folder /path/to/mount/point"
+  },
+  {
+    "question": "Makes a partition in ram which is useful if you need a temporary working space as read/write access is fast.\nBe aware that anything saved in this partition will be gone after your computer is turned off.",
+    "answer": "mount -t tmpfs tmpfs /mnt -o size=1024m"
+  },
+  {
+    "question": "-p parameter tells wget to include all files, including images.\n-e robots=off you don't want wget to obey by the robots.txt file\n-U mozilla as your browsers identity.\n--random-wait to let wget chose a random number of seconds to wait, avoid get into black list.\nOther Useful wget Parameters:\n--limit-rate=20k limits the rate at which it downloads files.\n-b continues wget after logging out.\n-o $HOME/wget_log.txt logs the output",
+    "answer": "wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com"
+  },
+  {
+    "question": "The terminal command \"Ctrl-L\" or sending the character sequence \"\\033[2J\" clears the screen of the terminal, erasing all previously displayed text and starting with a clean slate. This is useful for resetting the display when working with text-based applications or scripts, allowing users to easily view new output without having to scroll up or manually clear the screen.",
+    "answer": "ctrl-l"
+  },
+  {
+    "question": "Useful for checking if there are differences between local and remote files.",
+    "answer": "ssh user@host cat /path/to/remotefile | diff /path/to/localfile -"
+  },
+  {
+    "question": "Unreachable_host is unavailable from local network, but it's available from reachable_host's network. This command creates a connection to unreachable_host through \"hidden\" connection to reachable_host.",
+    "answer": "ssh -t reachable_host ssh unreachable_host"
+  },
+  {
+    "question": "time read -sn1 (s:silent, n:number of characters. Press any character to stop)",
+    "answer": "time read (ctrl-d to stop)"
+  },
+  {
+    "question": "This uses the curl tool to send an HTTP request to Twitter's update endpoint, authenticated with a username and password (user:pass). The -d parameter specifies the status message to be posted on Twitter (\"Tweeting from the shell\").",
+    "answer": "curl -u user:pass -d status=\"Tweeting from the shell\" http://twitter.com/statuses/update.xml"
+  },
+  {
+    "question": "Using +F will put less in follow mode. This works similar to 'tail -f'. To stop scrolling, use the interrupt. Then you'll get the normal benefits of less (scroll, etc.). \nPressing SHIFT-F will resume the 'tailling'.",
+    "answer": "less +F somelogfile"
+  },
+  {
+    "question": "A nice way to use the console in full screen without forget the current time.\nyou can too add other infos like cpu and mem use.",
+    "answer": "while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &"
+  },
+  {
+    "question": "This, consisting of the two parts \"disown -a\" and \"&& exit,\" allows you to close the current shell or terminal session while keeping all background processes (subprocesses) running. When you run this command, it detaches all currently running jobs from the shell using disown -a, and then exits the shell with the exit command. This ensures that any long-running tasks or processes will continue to run even after the shell has been closed.",
+    "answer": "disown -a && exit"
+  },
+  {
+    "question": "Easy and direct way to find this out.",
+    "answer": "getconf LONG_BIT"
+  },
+  {
+    "question": "This will output the characters at 10 per second.",
+    "answer": "echo \"You can simulate on-screen typing just like in the movies\" | pv -qL 10"
+  },
+  {
+    "question": "This generates a list of the most frequently used commands from your command history, sorted in descending order by frequency. It uses various tools such as `history`, `awk`, `sort`, and `head` to filter, process, and display the results. The output will show you the number of times each command has been executed followed by the actual command itself.",
+    "answer": "history | awk '{a[$2]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head"
+  },
+  {
+    "question": "Waiting for your server to finish rebooting? Issue the command above and you will hear a beep when it comes online. The -i 60 flag tells ping to wait for 60 seconds between ping, putting less strain on your system. Vary it to your need. The -a flag tells ping to include an audible bell in the output when a package is received (that is, when your server comes online).",
+    "answer": "ping -i 60 -a IP_address"
+  },
+  {
+    "question": "If the machine is hanging and the only help would be the power button, this key-combination will help to reboot your machine (more or less) gracefully.\nR - gives back control of the keyboard\nS - issues a sync\nE - sends all processes but init the term singal\nI - sends all processes but init the kill signal\nU - mounts all filesystem ro to prevent a fsck at reboot\nB - reboots the system\nSave your file before trying this out, this will reboot your machine without warning!\nhttp://en.wikipedia.org/wiki/Magic_SysRq_key",
+    "answer": "<alt> + <print screen/sys rq> + <R> - <S> - <E> - <I> - <U> - <B>"
+  },
+  {
+    "question": "The \"mv filename.{old,new}\" terminal command allows you to quickly rename a file by replacing its existing extension or name with a new one in a single step. This command takes advantage of the braces ({}) and comma (,) syntax to specify multiple extensions or names for the file, where \"filename\" is the original name of the file, \".old\" represents the old extension or name, and \".new\" represents the new extension or name you want to assign to the file. This command simplifies the process of renaming files by combining two separate operations into one.",
+    "answer": "mv filename.{old,new}"
+  },
+  {
+    "question": "Sometimes commands are long, but useful, so it's helpful to be able to make them permanent without having to retype them. An alternative could use the history command, and a cut/sed line that works on your platform.\nhistory -1 | cut -c 7- > foo.sh",
+    "answer": "echo \"!!\" > foo.sh"
+  },
+  {
+    "question": "If are a Bash user and you are in a directory and need to go else where for a while but don't want to lose where you were, use pushd instead of cd.  \ncd /home/complicated/path/.I/dont/want/to/forget\npushd /tmp\ncd thing/in/tmp\npopd (returns you to /home/complicated/path/.I/dont/want/to/forget)",
+    "answer": "pushd /tmp"
+  },
+  {
+    "question": "Deletes all files in a folder that are NOT *.foo, *.bar or *.baz files. Edit the pattern inside the brackets as you like.",
+    "answer": "rm !(*.foo|*.bar|*.baz)"
+  },
+  {
+    "question": "ps returns all running processes which are then sorted by the 4th field in numerical order and the top 10 are sent to STDOUT.",
+    "answer": "ps aux | sort -nk +4 | tail"
+  },
+  {
+    "question": "e.g. if rm is aliased for 'rm -i', you can escape the alias by prepending a backslash:\nrm [file] # WILL prompt for confirmation per the alias\n\\rm [file]  # will NOT prompt for confirmation per the default behavior of the command",
+    "answer": "\\[command]"
+  },
+  {
+    "question": "The \"lsof -i\" terminal command allows you to monitor network activity in real-time by listing open files and processes that have an active Internet connection. It provides information about which programs or services are currently using the network, their associated IP addresses, and ports.",
+    "answer": "lsof -i"
+  },
+  {
+    "question": "When using reverse-i-search you have to type some part of the command that you want to retrieve. However, if the command is very complex it might be difficult to recall the parts that will uniquely identify this command. Using the above trick it's possible to label your commands and access them easily by pressing ^R and typing the label (should be short and descriptive).\nUPDATE:\nOne might suggest using aliases. But in that case it would be difficult to change some parts of the command (such as options, file/directory names, etc).",
+    "answer": "some_very_long_and_complex_command # label"
+  },
+  {
+    "question": "bash/ksh subshell redirection (as file descriptors) used as input to diff",
+    "answer": "diff <(sort file1) <(sort file2)"
+  },
+  {
+    "question": "!* is all of the arguments to the previous command rather than just the last one. \nThis is useful in many situations. \nHere's a simple example:\nvi cd /stuff\noops!\n[exit vi, twice]\n!*\nexpands to: cd /stuff",
+    "answer": "!*"
+  },
+  {
+    "question": "This, \"lsof -P -i -n,\" is used to list open files and processes that have an active internet connection in real-time. It provides information about the applications or programs currently utilizing the network resources on your system, regardless of the language settings of your operating system.",
+    "answer": "lsof -P -i -n"
+  },
+  {
+    "question": "From the other machine open a web navigator and go to ip from the machine who launch netcat, http://ip-address/\nIf you have some web server listening at 80 port then you would need stop them or select another port before launch net cat ;-)\n* You need netcat tool installed",
+    "answer": "nc -v -l 80 < file.ext"
+  },
+  {
+    "question": "Curious about differences between /bin, /usr/bin, and /usr/local/bin? What should be in the /sbin dir? Try this command to find out.\nTested against Red Hat & OS X",
+    "answer": "man hier"
+  },
+  {
+    "question": "This is a simple example of using proper command nesting using $() over ``. There are a number of advantages of $() over backticks. First, they can be easily nested without escapes:\nprogram1 $(program2 $(program3 $(program4)))\nversus\nprogram1 `program2 \\`program3 \\`program4\\`\\``\nSecond, they're easier to read, then trying to decipher the difference between the backtick and the singlequote: `'. The only drawback $() suffers from is lack of total portability. If your script must be portable to the archaic Bourne shell, or old versions of the C-shell or Korn shell, then backticks are appropriate, otherwise, we should all get into the habit of $(). Your future script maintainers will thank you for producing cleaner code.",
+    "answer": "echo \"The date is: $(date +%D)\""
+  },
+  {
+    "question": "I find this terribly useful for grepping through a file, looking for just a block of text. There's \"grep -A # pattern file.txt\" to see a specific number of lines following your pattern, but what if you want to see the whole block? Say, the output of \"dmidecode\" (as root):\ndmidecode | awk '/Battery/,/^$/'\nWill show me everything following the battery block up to the next block of text. Again, I find this extremely useful when I want to see whole blocks of text based on a pattern, and I don't care to see the rest of the data in output. This could be used against the '/etc/securetty/user' file on Unix to find the block of a specific user. It could be used against VirtualHosts or Directories on Apache to find specific definitions. The scenarios go on for any text formatted in a block fashion. Very handy.",
+    "answer": "awk '/start_pattern/,/stop_pattern/' file.txt"
+  },
+  {
+    "question": "Show Sample Output",
+    "answer": "ifconfig | convert label:@- ip.png"
+  },
+  {
+    "question": "CDPATH tells the cd command to look in this colon-separated list of directories for your destination. My preferred order are 1) the current directory, specified by the empty string between the = and the first colon, 2) the parent directory (so that I can cd lib instead of cd ../lib), 3) my home directory, and 4) my ~/projects directory.",
+    "answer": "CDPATH=:..:~:~/projects"
+  },
+  {
+    "question": "While I love gpg and truecrypt there's some times when you just want to edit a file and not worry about keys or having to deal needing extra software on hand. Thus, you can use vim's encrypted file format.\nFor more info on vim's encrypted files visit: http://www.vim.org/htmldoc/editing.html#encryption\nShow Sample Output",
+    "answer": "vim -x <FILENAME>"
+  },
+  {
+    "question": "Using awk, find duplicates in a file without sorting, which reorders the contents. awk will not reorder them, and still find and remove duplicates which you can then redirect into another file.",
+    "answer": "awk '!x[$0]++' <file>"
+  },
+  {
+    "question": "This, \"ssh-copy-id username@hostname,\" simplifies the process of copying an SSH public key from a local machine to a remote one for passwordless login. It automates the steps required to securely transfer and install the public key on the remote server, allowing users to log in without entering a password each time. This makes accessing the remote machine more convenient and efficient.",
+    "answer": "ssh-copy-id username@hostname"
+  },
+  {
+    "question": "This dup finder saves time by comparing size first, then md5sum, it doesn't delete anything, just lists them.",
+    "answer": "find -not -empty -type f -printf \"%s\\n\" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate"
+  },
+  {
+    "question": "Useful when you're trying to unmount a volume and other sticky situations where a rogue process is annoying the hell out of you.",
+    "answer": "fuser -k filename"
+  },
+  {
+    "question": "/usr/sbin/ab2 -f TLS1 -S -n 1000 -c 100 -t 2 http://www.google.com/\nthen\n!:- http://www.commandlinefu.com/\nis the same as\n/usr/sbin/ab2 -f TLS1 -S -n 1000 -c 100 -t 2 http://www.commandlinefu.com/",
+    "answer": "!:-"
+  },
+  {
+    "question": "This, \"cat /etc/issue,\" displays the name and version of the Linux distribution installed on a system. The cat utility reads the contents of the specified file (in this case, /etc/issue) and prints it to the standard output, which is typically the screen or terminal window. This information can be useful for identifying the operating system running on a computer or server.",
+    "answer": "cat /etc/issue"
+  },
+  {
+    "question": "This command will start a simple SMTP server listening on port 1025 of localhost. This server simply prints to standard output all email headers and the email body.",
+    "answer": "python -m smtpd -n -c DebuggingServer localhost:1025"
+  },
+  {
+    "question": "This command retrieves a compressed tarball (tarball.gz) from the specified URL without saving it locally and then extracts its contents directly to the terminal or standard output. It uses wget for downloading and tar with the -z option for decompression, piping the output of one command into the other. This allows you to work with the extracted files temporarily without storing them on your local system.",
+    "answer": "wget -qO - \"http://www.tarball.com/tarball.gz\" | tar zxvf -"
+  },
+  {
+    "question": "As an alternative to using an additional grep -v grep you can use a simple regular expression in the search pattern (first letter is something out of the single letter list ;-)) to drop the grep command itself.",
+    "answer": "ps aux | grep [p]rocess-name"
+  },
+  {
+    "question": "If you use Mac OS X or some other *nix variant that doesn't come with ssh-copy-id, this one-liner will allow you to add your public key to a remote machine so you can subsequently ssh to that machine without a password.",
+    "answer": "cat ~/.ssh/id_rsa.pub | ssh user@machine \"mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys\""
+  },
+  {
+    "question": "Replace  and  accordingly.",
+    "answer": "mplayer -ao pcm -vo null -vc dummy -dumpaudio -dumpfile <output-file> <input-file>"
+  },
+  {
+    "question": "This command will replace all the spaces in all the filenames of the current directory with underscores.   There are other commands that do this here, but this one is the easiest and shortest.",
+    "answer": "rename 'y/ /_/' *"
+  },
+  {
+    "question": "Pressing ESC then * will insert in the command line the results of the autocompletion.\nIt's hard to explain but if you look the sample output or do \necho ESC *\nyou will understand quickly.\nBy the way, few reminders about ESC :\n- Hold ESC does the same thing as tab tab\n- 'ESC .' inserts the last argument of last command (can be done many times in order to get the last argument of all previous commands)",
+    "answer": "ESC *"
+  },
+  {
+    "question": "The \"Matrix Style\" terminal command generates a random sequence of numbers filled with spaces to create an ASCII art-like matrix pattern. It then filters out non-space characters, displaying only the visible digits in columns based on the current terminal width (COLUMNS). Finally, it highlights any non-empty lines using green colorization (GREP_COLOR=\"1;32\" and grep --color).",
+    "answer": "tr -c \"[:digit:]\" \" \" < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR=\"1;32\" grep --color \"[^ ]\""
+  },
+  {
+    "question": "Usage:\ntranslate <phrase> <source-language> <output-language>\nExample:\ntranslate hello en es\nSee this for a list of language codes:\nhttp://en.wikipedia.org/wiki/List_of_ISO_639-1_codes\nShow Sample Output",
+    "answer": "translate(){ wget -qO- \"http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=$1&langpair=$2|${3:-en}\" | sed 's/.*\"translatedText\":\"\\([^\"]*\\)\".*}/\\1\\n/'; }"
+  },
+  {
+    "question": "This, often referred to as \"fc\" or \"fcite\" (depending on the operating system), is designed to quickly launch an editor for composing and editing a complex or intricate command before executing it. It allows users to create, review, and modify their commands in a user-friendly environment, reducing the risk of errors when entering long or complicated commands directly into the terminal.",
+    "answer": "fc"
+  },
+  {
+    "question": "This code, when executed with administrative privileges (using \"sudo\"), reads the entire physical memory of the system (\"/dev/mem\") and pipes it through two commands: \"dd\" and \"cat\". The output is then filtered by \"strings\", which extracts and displays all the plain text values found in the RAM. In essence, this command allows you to view the contents of your system's memory as readable text, providing a glimpse into the data stored temporarily during various processes and operations. However, it should be noted that this is an advanced operation and may not be necessary for most users. It can also reveal sensitive information, so it should only be used by experienced users with caution.",
+    "answer": "sudo dd if=/dev/mem | cat | strings"
+  },
+  {
+    "question": "Prints a graphical directory tree from your current directory",
+    "answer": "ls -R | grep \":$\" | sed -e 's/:$//' -e 's/[^-][^\\/]*\\//--/g' -e 's/^/   /' -e 's/-/|/'"
+  },
+  {
+    "question": "The biggest advantage of this over the functions is that it is portable.",
+    "answer": "mkdir /home/foo/doc/bar && cd $_"
+  },
+  {
+    "question": "This command, using the strace utility, monitors and traces the standard output (stdout) and standard error (stderr) of a specified process identified by its SOME_PID. The -ff option ensures that strace follows forked processes, while the -e trace=write and -e write=1,2 options filter the tracing to only show write operations on stdout and stderr. In summary, it allows you to observe and track the writing activities of a particular process's output streams in real-time.",
+    "answer": "strace -ff -e trace=write -e write=1,2 -p SOME_PID"
+  },
+  {
+    "question": "Quick and dirty version. I made a version that checks if a manpage exists (but it's not a oneliner). You must have ps2pdf and of course Ghostscript installed in your box.\nEnhancements appreciated :-)",
+    "answer": "man -t manpage | ps2pdf - filename.pdf"
+  },
+  {
+    "question": "pv allows  a user to see the progress of data through a pipeline, by giving information such as time elapsed, percentage completed (with progress bar), current throughput rate, total data transferred, and ETA. (man pv)",
+    "answer": "pv sourcefile > destfile"
+  },
+  {
+    "question": "Many like to use 'dd' for creating CD/DVD iso images. This is bad. Very bad. The reason this is, is 'dd' doesn't have any built-in error checking. So, you don't know if you got all the bits or not. As such, it is not the right tool for the job. Instead, 'reaom' (read optical media) from the wodim package is what you should be using. It has built-in error checking. Similarly, if you want to burn your newly creating ISO, stay away from 'dd', and use:\nwodim -v -eject /path/to/image.iso",
+    "answer": "readom dev=/dev/scd0 f=/path/to/image.iso"
+  },
+  {
+    "question": "defines a handy function for quick calculations from cli. \nonce defined:\n? 10*2+3\nShow Sample Output",
+    "answer": "? () { echo \"$*\" | bc -l; }"
+  },
+  {
+    "question": "This is the result of a several week venture without X. I found myself totally happy without X (and by extension without flash) and was able to do just about anything but watch YouTube videos... so this a the solution I came up with for that. I am sure this can be done better but this does indeed work... and tends to work far better than YouTube's ghetto proprietary flash player ;-) \nReplace $i with any YouTube ID you want and this will scrape the site for the _real_ URL to the full quality .FLV file on Youtube's server and will then will hand that over to mplayer (or vlc or whatever you want) to be streamed. \nIn some browsers you can replace $i with just a % or put this in a shell script so all YouTube IDs can be handed directly off to your media player of choice for true streaming without the need for Flash or a downloader like clive. (I do however fully recommend clive if you wish to archive videos instead of streaming them)\nIf any interest is shown I would be more than happy to provide similar commands for other sites. Most streaming flash players use similar logic to YouTube.\nEdit: 05/03/2011 -\nUpdated line to work with current YouTube. It could be a lot prettier but I will probably follow up with another update when I figure out how to get rid of that pesky Grep. Sed should take that syntax... but it doesn't. \nOriginal (no longer working) command:\nmplayer -fs $(echo \"http://youtube.com/get_video.php?$(curl -s $youtube_url | sed -n \"/watch_fullscreen/s;.*\\(video_id.\\+\\)&title.*;\\1;p\")\")",
+    "answer": "i=\"8uyxVmdaJ-w\";mplayer -fs $(curl -s \"http://www.youtube.com/get_video_info?&video_id=$i\" | echo -e $(sed 's/%/\\\\x/g;s/.*\\(v[0-9]\\.lscache.*\\)/http:\\/\\/\\1/g') | grep -oP '^[^|,]*')"
+  },
+  {
+    "question": "This will create the intermediate directories that do not exist. \nI did not know about this for a long time.",
+    "answer": "mkdir -p a/long/directory/path"
+  },
+  {
+    "question": "This version uses read instead of eval.",
+    "answer": "read day month year <<< $(date +'%d %m %y')"
+  },
+  {
+    "question": "Show Sample Output",
+    "answer": "alias 'ps?'='ps ax | grep '"
+  },
+  {
+    "question": "This, using the `rm -f` option, deletes all files in a directory except for one specific file named \"survivor.txt.\" The `!(survivor.txt)` part of the command is a globbing pattern that excludes any file or folder from being deleted if it does not match the specified filename. In other words, this command removes all files and folders in the current directory except for the \"survivor.txt\" file.",
+    "answer": "rm -f !(survivior.txt)"
+  },
+  {
+    "question": "This allows you to edit a file located on a remote host using the Vim text editor. By appending \"vim scp://username@host//path/to/somefile\", you initiate a secure copy (SCP) transfer to retrieve the specified file from the remote host and open it in Vim for editing. Once edited, any changes will be saved back to the remote host when exiting Vim. Note that this command assumes Vim is installed on both the local and remote machines, and proper authentication credentials are provided for SCP access.",
+    "answer": "vim scp://username@host//path/to/somefile"
+  },
+  {
+    "question": "Find random strings within /dev/urandom.  Using grep filter to just Alphanumeric characters, and then print the first 30 and remove all the line feeds.",
+    "answer": "strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\\n'; echo"
+  },
+  {
+    "question": "It deletes all removed files, updates what was modified, and adds new files.",
+    "answer": "git add -u"
+  },
+  {
+    "question": "You're running a script, command, whatever.. You don't expect it to take long, now 5pm has rolled around and you're ready to go home... Wait, it's still running... You forgot to nohup it before running it... Suspend it, send it to the background, then disown it... The ouput wont go anywhere, but at least the command will still run...",
+    "answer": "^Z $bg $disown"
+  },
+  {
+    "question": "Written for linux, the real example is how to produce ascii text graphs based on a numeric value (anything where uniq -c is useful is a good candidate).",
+    "answer": "netstat -an | grep ESTABLISHED | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c | awk '{ printf(\"%s\\t%s\\t\",$2,$1) ; for (i = 0; i < $1; i++) {printf(\"*\")}; print \"\" }'"
+  },
+  {
+    "question": "for one line per process:\nss -p | cat\nfor established sockets only:\nss -p | grep STA\nfor just process names:\nss -p | cut -f2 -sd\\\"\nor\nss -p | grep STA | cut -f2 -d\\\"",
+    "answer": "ss -p"
+  },
+  {
+    "question": "Pipe viewer is a terminal-based tool for monitoring the progress of data through a pipeline. It can be inserted into any normal pipeline between two processes to give a visual indication of how quickly data is passing through, how long it has taken, how near to completion it is, and an estimate of how long it will be until completion. Source: http://www.catonmat.net/blog/unix-utilities-pipe-viewer/\nShow Sample Output",
+    "answer": "pv access.log | gzip > access.log.gz"
+  },
+  {
+    "question": "This, composed of three parts (du -s * | sort -n | tail), is used to list and rank the sizes of files and folders within the current directory. The \"du -s *\" part calculates the size of each file or folder in the directory without printing their names. The output from this command is then piped into \"sort -n\" which sorts the results numerically based on the file/folder sizes. Finally, the sorted output is passed to \"tail\" which displays only the last 10 lines (the largest files/folders). In summary, this code finds and displays the 10 biggest files or folders in the current directory, ranked by their size.",
+    "answer": "du -s * | sort -n | tail"
+  },
+  {
+    "question": "Grab X11 input and create an MPEG at 25 fps with the resolution 800x600",
+    "answer": "ffmpeg -f x11grab -r 25 -s 800x600 -i :0.0 /tmp/outputFile.mpg"
+  },
+  {
+    "question": "Watch is a very useful command for periodically running another command - in this using mysqladmin to display the processlist.  This is useful for monitoring which queries are causing your server to clog up.\nMore info here: http://codeinthehole.com/archives/2-Monitoring-MySQL-processes.html",
+    "answer": "watch -n 1 mysqladmin --user=<user> --password=<password> processlist"
+  },
+  {
+    "question": "This, using the \"find\" utility with specific arguments, searches for empty directories recursively from the current working directory (denoted by '.'). Once it finds an empty directory, it deletes it. In simpler terms, this code removes all empty folders in a given directory and its subdirectories.",
+    "answer": "find . -type d -empty -delete"
+  },
+  {
+    "question": "This is how I typically grep.  -R recurse into subdirectories, -n show line numbers of matches, -i ignore case, -s suppress \"doesn't exist\" and \"can't read\" messages, -I ignore binary files (technically, process them as having no matches, important for showing inverted results with -v)\nI have grep aliased to \"grep --color=auto\" as well, but that's a matter of formatting not function.",
+    "answer": "grep -RnisI <pattern> *"
+  },
+  {
+    "question": "This example, for example, produces the output, \"Fri Feb 13 15:26:30 EST 2009\"",
+    "answer": "date -d@1234567890"
+  },
+  {
+    "question": "Same as http://www.commandlinefu.com/commands/view/5876, but for bash.\nThis will show a numerical value for each of the 256 colors in bash. Everything in the command is a bash builtin, so it should run on any platform where bash is installed. Prints one color per line. If someone is interested in formatting the output, paste the alternative.",
+    "answer": "for code in {0..255}; do echo -e \"\\e[38;05;${code}m $code: Test\"; done"
+  },
+  {
+    "question": "This command displays a clock on your terminal which updates the time every second. Press Ctrl-C to exit.\nA couple of variants:\nA little bit bigger text:\nwatch -t -n1  \"date +%T|figlet -f big\"\nYou can try other figlet fonts, too.\nBig sideways characters:\nwatch -n 1 -t '/usr/games/banner -w 30 $(date +%M:%S)'\nThis requires a particular version of banner and a 40-line terminal or you can adjust the width (\"30\" here).",
+    "answer": "watch -t -n1 \"date +%T|figlet\""
+  },
+  {
+    "question": "Usage: cmdfu hello world",
+    "answer": "cmdfu(){ curl \"http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext\"; }"
+  },
+  {
+    "question": "Read 32GB zero's and throw them away.  \nHow fast is your system?",
+    "answer": "dd if=/dev/zero of=/dev/null bs=1M count=32768"
+  },
+  {
+    "question": "Uses shell expansion to create a back-up called file.txt.bak",
+    "answer": "cp file.txt{,.bak}"
+  },
+  {
+    "question": "Change Seville for your prefered city.",
+    "answer": "curl wttr.in/seville"
+  },
+  {
+    "question": "just make some data scrolling off the terminal. wow.",
+    "answer": "cat /dev/urandom | hexdump -C | grep \"ca fe\""
+  },
+  {
+    "question": "Remove security from PDF document using this very simple command on Linux and OSX. You need ghostscript for this baby to work.",
+    "answer": "gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=OUTPUT.pdf -c .setpdfwrite -f INPUT.pdf"
+  },
+  {
+    "question": "Checks the Gmail ATOM feed for your account, parses it and outputs a list of unread messages.\nFor some reason sed gets stuck on OS X, so here's a Perl version for the Mac:\ncurl -u username:password --silent \"https://mail.google.com/mail/feed/atom\" | tr -d '\\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | perl -pe 's/^<title>(.*)<\\/title>.*<name>(.*)<\\/name>.*$/$2 - $1/'\nIf you want to see the name of the last person, who added a message to the conversation, change the greediness of the operators like this:\ncurl -u username:password --silent \"https://mail.google.com/mail/feed/atom\" | tr -d '\\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | perl -pe 's/^<title>(.*)<\\/title>.*?<name>(.*?)<\\/name>.*$/$2 - $1/'\nShow Sample Output",
+    "answer": "curl -u username:password --silent \"https://mail.google.com/mail/feed/atom\" | tr -d '\\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | sed -n \"s/<title>\\(.*\\)<\\/title.*name>\\(.*\\)<\\/name>.*/\\2 - \\1/p\""
+  },
+  {
+    "question": "The title is optional.\nOptions:\n-t: expire time in milliseconds.\n-u: urgency (low, normal, critical).\n-i: icon path.\nOn Debian-based systems you may need to install the 'libnotify-bin' package.\nUseful to advise when a wget download or a simulation ends. Example:\nwget URL ; notify-send \"Done\"",
+    "answer": "notify-send [\"<title>\"] \"<body>\""
+  },
+  {
+    "question": "Create a persistent SSH connection to the host in the background. Combine this with settings in your ~/.ssh/config:\n Host host\n        ControlPath ~/.ssh/master-%r@%h:%p\n        ControlMaster no\nAll the SSH connections to the machine will then go through the persisten SSH socket. This is very useful if you are using SSH to synchronize files (using rsync/sftp/cvs/svn) on a regular basis because it won't create a new socket each time to open an ssh connection.",
+    "answer": "ssh -MNf <user>@<host>"
+  },
+  {
+    "question": "\"-o loop\" lets you use a file as a block device",
+    "answer": "mount /path/to/file.iso /mnt/cdrom -oloop"
+  },
+  {
+    "question": "Also works with:\nchgrp --reference file1 file2\nchown --reference file1 file2",
+    "answer": "chmod --reference file1 file2"
+  },
+  {
+    "question": "Good for one off jobs that you want to run at a quiet time.  The default threshold is a load average of 0.8 but this can be set using atrun.",
+    "answer": "echo \"rm -rf /unwanted-but-large/folder\" | batch"
+  },
+  {
+    "question": "In this case it's better do to use the dedicated tool",
+    "answer": "ssh-keygen -R <the_offending_host>"
+  },
+  {
+    "question": "'dpkg -S' just matches the string you supply it, so just using 'ls' as an argument matches any file from any package that has 'ls' anywhere in the filename. So usually it's a good idea to use an absolute path. You can see in the second example that 12 thousand files that are known to dpkg match the bare string 'ls'.",
+    "answer": "dpkg -S /usr/bin/ls"
+  },
+  {
+    "question": "I did not know this, i'd like to share...",
+    "answer": "open ."
+  },
+  {
+    "question": "You can get one specific line during any procedure. Very interesting to be used when you know what line you want.",
+    "answer": "sed -n 5p <file>"
+  },
+  {
+    "question": "If you want a visual representation of the parent/child relationships between processes, this is one easy way to do it.  It's useful in debugging collections of shell scripts, because it provides something like a call traceback.\nWhen a shell script breaks, just remember \"awwfux\".",
+    "answer": "ps awwfux | less -S"
+  },
+  {
+    "question": "Directly attach a remote screen session (saves a useless parent bash process)",
+    "answer": "ssh -t remote_host screen -r"
+  },
+  {
+    "question": "This command shows the various shortcuts that can be use in bash, including Ctrl+L, Ctrl+R, etc...\nYou can translate \"\\C-y\" to Ctrl+y, for example.",
+    "answer": "bind -P"
+  },
+  {
+    "question": "This code executes a command named \"COMMAND\" and sets a timeout of 5 seconds. If the command is still running after 5 seconds, it will be terminated or killed automatically by the system. This ensures that if the command takes longer than expected or gets stuck, it won't keep the terminal occupied indefinitely.",
+    "answer": "timeout 5s COMMAND"
+  },
+  {
+    "question": "RTFMFTW.",
+    "answer": "rtfm() { help $@ || man $@ || $BROWSER \"http://www.google.com/search?q=$@\"; }"
+  },
+  {
+    "question": "This command takes a snapshot of the open files for a PID 1234 then waits 10 seconds and takes another snapshot of the same PID, it then displays the difference between each snapshot to give you an insight into what the application is doing.",
+    "answer": "diff <(lsof -p 1234) <(sleep 10; lsof -p 1234)"
+  },
+  {
+    "question": "This deletes all files previously extracted from a tar(.gz) archive named \"<file.tar.gz>.\" First, it lists the contents of the archive using \"tar -tf,\" and then pipes those results to \"xargs rm -r\" to remove each listed file or directory recursively. It's important to note that this command will permanently delete files without any confirmation prompt, so use with caution.",
+    "answer": "tar -tf <file.tar.gz> | xargs rm -r"
+  },
+  {
+    "question": "Sometimes you need to use a port that is already opened by some program , and you don't know who to \"kill\" for it to release - so, now you do !",
+    "answer": "lsof -i tcp:80"
+  },
+  {
+    "question": "Short command, easy to remember",
+    "answer": "curl ifconfig.me"
+  },
+  {
+    "question": "run 'nc yourip 5000', 'nc yourip 5001' or 'nc yourip 5002' elsewhere will produce an exact same mirror of your shell. This is handy when you want to show someone else some amazing stuff in your shell without giving them control over it.",
+    "answer": "script -qf | tee >(nc -kl 5000) >(nc -kl 5001) >(nc -kl 5002)"
+  },
+  {
+    "question": "Of course you need to be able to access host A for this ;-)",
+    "answer": "ssh -t hostA ssh hostB"
+  },
+  {
+    "question": "This code creates a bash script-like structure in the terminal to automatically retry the previous command until it exits successfully. It uses an infinite loop with two semicolons (`do :; done`) as placeholders, and the `until !!` condition checks if the last executed command did not exit with a non-zero status code. This means that the script will continuously run the previous command until it completes without any errors or returns a successful exit code.",
+    "answer": "until !!; do :; done"
+  },
+  {
+    "question": "-d: list directory entries instead of contents, and do not dereference symbolic links",
+    "answer": "ls -d */"
+  },
+  {
+    "question": "In Python version 3, the module was merged into http.server. Gentlemen, change your aliases.",
+    "answer": "python -m http.server"
+  },
+  {
+    "question": "Shorter, easier to remember version of cmd#7636\nNTP is better, but there are situations where it can't be used. In those cases, you can do this to sync the local time to a server.",
+    "answer": "date --set=\"$(ssh user@server date)\""
+  },
+  {
+    "question": "The empty file /forcefsck causes the file system check fsck to be run next time you boot up, after which it will be removed.\nThis works too:\nsudo >/forcefsck",
+    "answer": "sudo touch /forcefsck"
+  },
+  {
+    "question": "Google just released a new commend line tool offering all sorts of new services from the commend line. One of them is uploading a youtube video but there are plenty more google services to interact with.\nDownload it here: http://code.google.com/p/googlecl/\nManual: http://code.google.com/p/googlecl/wiki/Manual\nThis specific command courtesy of lifehacker:http://lifehacker.com/5568817/\nThough all can be found in manual page linked above.",
+    "answer": "google docs edit --title \"To-Do List\" --editor vim"
+  },
+  {
+    "question": "If you enable multiuser, then you can permit others to share your screen session.   The following conditions apply:\n1. screen must be suid root;\n2. \"multiuser on\" must be configured in ~/.screenrc;\n3. control the others user(s) access with \"aclchg\":\n# ----- from ~/.screenrc-users -----\n    aclchg someuser +rx \"#?\"                                            #enable r/o access to \"someuser\"\n    aclchg someuser -x   \"#,at,aclchg,acladd,acldel,quit\"  # don't allow these\n    aclchg otheruser +rwx \"#?\"                                          # enable r/w access to \"otheruser\"\n    aclchg otheruser -x   \"#,at,aclchg,acladd,acldel,quit\"  # don't allow them to use these commands\n# -----\nAfter doing this (once), you start your session with:\n    $ screen\nThen, the other user can join your terminal session(s) with youruserid:\n    $ screen -r youruserid/\nNote: the trailing \"/\" is required.\nMultiple users can share the same screen simultaneously, each with independent access controlled precisely with \"aclchg\" in the ~/.screenrc file.\nI use the following setup:\n    # ~/.screenrc-base\n    # default screenrc on any host\n    source $HOME/.screenrc-base\n    source $HOME/.screenrc-$HOST\n    source $HOME/.screenrc-users\n    # -----\nThen, the base configurations are in ~/.screenrc-base; the host-specific configurations are in ~/.screenrc-$HOST, and the user configurations are in ~/.screenrc-users.\nThe host-specific .screenrc file might contain some host-specific screen commands; e.g.:\n     # ~/.screen-myhost\n     # -----\n     screen -t 'anywhere'\t\t/bin/tcsh\n     screen -t 'anywhere1'\t\t/bin/tcsh\n     # ----\nThe .screenrc-base contains:\n     # ~/.screenrc-base\n     ## I find typing ^a (Control-a) awkward.  So I set the escape key to CTRL-j instead of a.\n     escape ^Jj\n     termcapinfo xterm*  ti@:te@:\n     autodetach on\n     zombie kr\n     verbose on\n     multiuser on",
+    "answer": "% screen -r someuser/"
+  },
+  {
+    "question": "EDIT: command updated to support accented characters!\nWorks in any of 58 google supported languages (some sound like crap, english is the best IMO).\nYou get a mp3 file containing your query in spoken language. There is a limit of 100 characters for the \"q\" parameter, so be careful. The \"tl\" parameter contains target language.",
+    "answer": "wget -q -U Mozilla -O output.mp3 \"http://translate.google.com/translate_tts?ie=UTF-8&tl=en&q=hello+world"
+  },
+  {
+    "question": "This command allows you to transfer a list of installed RPM packages from one remote machine to another, effectively duplicating the package installations. By using SSH and connecting to the remote host, it captures the output of \"rpm -qa\" (listing all installed RPMs) and pipes it into the \"yum install\" command on the second machine. The \"-y\" flag automatically approves the installation of these packages without prompting for user input. This process helps ensure that both machines have identical package installations, which can be useful in maintaining consistency between systems or when transferring configurations.",
+    "answer": "ssh root@remote.host \"rpm -qa\" | xargs yum -y install"
+  },
+  {
+    "question": "The \"mkdir -p work/{d1,d2}/{src,bin,bak}\" command creates a directory structure or tree within the \"work\" folder. It will create four subfolders named \"d1\" and \"d2\" under the \"work\" folder, and then three more subfolders named \"src,\" \"bin,\" and \"bak\" under each of the \"d1\" and \"d2\" folders. This command is useful for organizing files in a hierarchical manner within a specific project or workspace.",
+    "answer": "mkdir -p work/{d1,d2}/{src,bin,bak}"
+  },
+  {
+    "question": "Instead of opening your browser, googling \"whatismyip\"...\nAlso useful for scripts.\ndig can be found in the dnsutils package.",
+    "answer": "dig +short myip.opendns.com @resolver1.opendns.com"
+  },
+  {
+    "question": "Create a binary clock.",
+    "answer": "watch -n 1 'echo \"obase=2;`date +%s`\" | bc'"
+  },
+  {
+    "question": "Probably only works with GNU du and modern perls.",
+    "answer": "du -b --max-depth 1 | sort -nr | perl -pe 's{([0-9]+)}{sprintf \"%.1f%s\", $1>=2**30? ($1/2**30, \"G\"): $1>=2**20? ($1/2**20, \"M\"): $1>=2**10? ($1/2**10, \"K\"): ($1, \"\")}e'"
+  },
+  {
+    "question": "Nothing special required, just wget, sed & tr!",
+    "answer": "wget http://www.youtube.com/watch?v=dQw4w9WgXcQ -qO- | sed -n \"/fmt_url_map/{s/[\\'\\\"\\|]/\\n/g;p}\" | sed -n '/^fmt_url_map/,/videoplayback/p' | sed -e :a -e '$q;N;5,$D;ba' | tr -d '\\n' | sed -e 's/\\(.*\\),\\(.\\)\\{1,3\\}/\\1/' | wget -i - -O surprise.flv"
+  },
+  {
+    "question": "This recursively downloads all images from a given website to your /tmp directory.  The -nH and -nd switches disable downloading of the directory structure.",
+    "answer": "wget -r -l1 --no-parent -nH -nd -P/tmp -A\".gif,.jpg\" http://example.com/images"
+  },
+  {
+    "question": "show only the name of the apps that are using internet",
+    "answer": "lsof -P -i -n | cut -f 1 -d \" \"| uniq | tail -n +2"
+  },
+  {
+    "question": "If you spend most of your time in front of the terminal, leave is a useful reminder. Leave can have absolute form: leave 1555 reminds you to leave at 3:55PM",
+    "answer": "leave +15"
+  },
+  {
+    "question": "Very handy to bring the word currently under the cursor into a :s command in Vim.\nExample:\nIf the cursor was on the word \"eggs\":\n:s/  ==> :s/eggs",
+    "answer": ":<C-R><C-W>"
+  },
+  {
+    "question": "This uses Bash's \"process substitution\" feature to compare (using diff) the output of two different process pipelines.",
+    "answer": "diff <(cd dir1 && find | sort) <(cd dir2 && find | sort)"
+  },
+  {
+    "question": "parse `lsmod' output and pass to `dot' drawing utility then finally pass it to an image viewer",
+    "answer": "lsmod | perl -e 'print \"digraph \\\"lsmod\\\" {\";<>;while(<>){@_=split/\\s+/; print \"\\\"$_[0]\\\" -> \\\"$_\\\"\\n\" for split/,/,$_[3]}print \"}\"' | dot -Tpng | display -"
+  },
+  {
+    "question": "Useful mainly for debugging or troubleshooting an application or system, such as X11, Apache, Bind, DHCP and others. Another useful switch that can be combined with -mmin, -mtime and so forth is -daystart. For example, to find files that were modified in the /etc directory only yesterday:\nsudo find /etc -daystart -mtime 1 -type f",
+    "answer": "sudo find / -mmin 60 -type f"
+  },
+  {
+    "question": "youtube-dl has this functionality built in. If you're running an older version of youtube-dl, you can update it using `youtube-dl -U` (although if you have an older version, it probably doesn't download youtube videos anyway.)\nyoutube-dl --help will show you other options that may come in useful.",
+    "answer": "youtube-dl -t --extract-audio --audio-format mp3 YOUTUBE_URL_HERE"
+  },
+  {
+    "question": "History usually only gives the command number and the command.  This will add a timestamp to the history file.\nNote:  this will only put the correct timestamp on commands used after the export is done.  You may want to put this in your .bashrc",
+    "answer": "export HISTTIMEFORMAT=\"%F %T \""
+  },
+  {
+    "question": "Knock on ports to open a port to a service (ssh for example) and knock again to close the port. You have to install knockd.\nSee example config file below.\n[options]\n        logfile = /var/log/knockd.log\n[openSSH]\n        sequence    = 3000,4000,5000\n        seq_timeout = 5\n        command     = /sbin/iptables -A INPUT  -i eth0 -s %IP% -p tcp --dport 22 -j ACCEPT\n        tcpflags    = syn\n[closeSSH]\n        sequence    = 5000,4000,3000\n        seq_timeout = 5\n        command     = /sbin/iptables -D  INPUT  -i eth0 -s %IP% -p tcp --dport 22 -j ACCEPT\n        tcpflags    = syn",
+    "answer": "knock <host> 3000 4000 5000 && ssh -p <port> user@host && knock <host> 5000 4000 3000"
+  },
+  {
+    "question": "Much simpler method. More portable version: ssh host -l user \"`cat cmd.txt`\"",
+    "answer": "ssh host -l user $(<cmd.txt)"
+  },
+  {
+    "question": "Tee can be used to split a pipe into multiple streams for one or more process to work it.  You can add more \" >()\" for even more fun.",
+    "answer": "echo \"tee can split a pipe in two\"|tee >(rev) >(tr ' ' '_')"
+  },
+  {
+    "question": "SSH can be controlled trough an ~ escape sequence. Example, to terminate the current ssh connection, type a newline, then the ~ character, and last a . character.\nThis is useful eg when an ssh connection hangs after you reboot a machine and the connection hangs.",
+    "answer": "[enter]~?"
+  },
+  {
+    "question": "Ever ask yourself \"How much data would be lost if I pressed the reset button?\"\nScary, isn't it?",
+    "answer": "grep ^Dirty /proc/meminfo"
+  },
+  {
+    "question": "This code automates the process of backing up all MySQL databases to individual compressed files (with a .sql.gz extension). It iterates through each database listed by the \"show databases\" command, runs the mysqldump utility to create a backup of that specific database, and then compresses the output using gzip before saving it with the corresponding database name as the file name. This ensures that all MySQL databases are backed up in separate files for easy restoration or access later on.",
+    "answer": "for I in $(mysql -e 'show databases' -s --skip-column-names); do mysqldump $I | gzip > \"$I.sql.gz\"; done"
+  },
+  {
+    "question": "This, using the find and chmod utilities, recursively searches through a specified directory (starting from \"./\") for files only (-type f). It then executes the chmod command on each file, setting its permissions to 644, which allows read and write access for the owner and read access for others. The \"{}\" in the command is replaced with the path of each found file, and \"\\;\" indicates the end of the command executed for each file. Since directories are not specified (-type d is excluded), this command leaves directories unchanged during the process.",
+    "answer": "find ./ -type f -exec chmod 644 {} \\;"
+  },
+  {
+    "question": "The \"showkey -a\" terminal command provides a quick and convenient way to display the ASCII code of a pressed key on your computer. It can be useful for developers, programmers, or anyone who needs to identify the specific character value associated with a given key press.",
+    "answer": "showkey -a"
+  },
+  {
+    "question": "expand to:\n   cp /work/host/phone/ui/main.cpp /work/target/phone/ui/main.cpp\n!#\n    The entire command line typed so far.",
+    "answer": "cp /work/host/phone/ui/main.cpp !#$:s/host/target"
+  },
+  {
+    "question": "I have a bash alias for this command line and find it useful for searching C code for error messages.  \nThe -H tells grep to print the filename.  you can omit the -i to match the case exactly or keep the -i for case-insensitive matching.\nThis find command find all .c and .h files",
+    "answer": "find . -name \"*.[ch]\" -exec grep -i -H \"search pharse\" {} \\;"
+  },
+  {
+    "question": "Forwards localhost:1234 to machine:port, running all data through your chain of piped commands. The above command logs inbound and outbound traffic to two files.\nTip: replace tee with sed to manipulate the data in real time (use \"sed -e 's/400 Bad Request/200 OK/'\" to tweak a web server's responses ;-) Limitless possibilities.",
+    "answer": "mkfifo /tmp/fifo; cat /tmp/fifo | nc -l -p 1234 | tee -a to.log | nc machine port | tee -a from.log > /tmp/fifo"
+  },
+  {
+    "question": "Blacklisted is a compiled list of all known dirty hosts (botnets, spammers, bruteforcers, etc.) which is updated on an hourly basis. This command will get the list and create the rules for you, if you want them automatically blocked, append |sh to the end of the command line. It's a more practical solution to block all and allow in specifics however, there are many who don't or can't do this which is where this script will come in handy.  For those using ipfw, a quick fix would be {print \"add deny ip from \"$1\" to any}. Posted in the sample output are the top two entries. Be advised the blacklisted file itself filters out RFC1918 addresses (10.x.x.x, 172.16-31.x.x, 192.168.x.x) however, it is advisable you check/parse the list before you implement the rules",
+    "answer": "wget -qO - http://infiltrated.net/blacklisted|awk '!/#|[a-z]/&&/./{print \"iptables -A INPUT -s \"$1\" -j DROP\"}'"
+  },
+  {
+    "question": "Find files in a specific date range - in this case, the first half of last year.\n-newermt = modification time of the file is more recent than this date\nGNU find allows any date specfication that GNU date would accept, e.g.\nfind . -type f -newermt \"3 years ago\" ! -newermt \"2 years ago\"\nor\nfind . -type f -newermt \"last monday\"",
+    "answer": "find . -type f -newermt \"2010-01-01\" ! -newermt \"2010-06-01\""
+  },
+  {
+    "question": "How often do you make a directory (or series of directories) and then change into it to do whatever? 99% of the time that is what I do. \nThis BASH function 'md' will make the directory path then immediately change to the new directory. By using the 'mkdir -p' switch, the intermediate directories are created as well if they do not exist.",
+    "answer": "md () { mkdir -p \"$@\" && cd \"$@\"; }"
+  },
+  {
+    "question": "This command allows you to capture audio from your local microphone, compress it into a data format (dat), and then securely transfer the audio over SSH to a remote computer. Once received on the remote computer, the audio is played through its speaker using the 'aplay' command. In summary, this code enables real-time audio streaming from your microphone to a remote computer's speaker via an encrypted connection.",
+    "answer": "arecord -f dat | ssh -C user@host aplay -f dat"
+  },
+  {
+    "question": "remotely connects to an https site, fetches the ssl certificate and displays the valid dates for the cert",
+    "answer": "echo | openssl s_client -connect www.google.com:443 2>/dev/null |openssl x509 -dates -noout"
+  },
+  {
+    "question": "Get your colorized grep output in less(1).  This involves two things: forcing grep to output colors even though it's not going to a terminal and telling less to handle those properly.",
+    "answer": "grep --color=always | less -R"
+  },
+  {
+    "question": "Write a file you edited in Vim but that you do not have the permissions to write to (unless you use sudo.) Same as #1204 but without the echo to stdout that I find annoying.",
+    "answer": ":w !sudo tee > /dev/null %"
+  },
+  {
+    "question": "This captures traffic on a remote machine with tshark, sends the raw pcap data over the ssh link, and displays it in wireshark.  Hitting ctrl+C will stop the capture and unfortunately close your wireshark window.  This can be worked-around by passing -c # to tshark to only capture a certain # of packets, or redirecting the data through a named pipe rather than piping directly from ssh to wireshark.  I recommend filtering as much as you can in the tshark command to conserve bandwidth.  tshark can be replaced with tcpdump thusly:\nssh root@example.com tcpdump -w - 'port !22' | wireshark -k -i -",
+    "answer": "ssh root@server.com 'tshark -f \"port !22\" -w -' | wireshark -k -i -"
+  },
+  {
+    "question": "Negative shell globs already come with bash. Make sure to turn on extended pattern matching with 'shopt -e extglob'.",
+    "answer": "ls !(*.gz)"
+  },
+  {
+    "question": "Print all columns except the 1st and 3rd.",
+    "answer": "awk '{$1=$3=\"\"}1' file"
+  },
+  {
+    "question": "If you're a moron like me, sometimes your fingers get away from you and you, for example, enter your password when you're already authenticated to ssh-agent, sudo, etc., and your password ends up in shell history. Here's how to get it out.",
+    "answer": "history -d"
+  },
+  {
+    "question": "This, using the `sed` tool with the `-i` flag and the argument `8d`, is designed to remove a specific line (line number 8) from the file `~/.ssh/known_hosts`. The purpose of this action is to address \"ssh host key change\" warnings by eliminating an outdated or incorrect entry in the known hosts file, which can help maintain secure SSH connections.",
+    "answer": "sed -i 8d ~/.ssh/known_hosts"
+  },
+  {
+    "question": "This command utilizes the grep tool to filter out blank lines from an existing file named \"filename\" and redirects the non-blank line output to a new file called \"newfilename.\" In essence, it removes all empty lines from the original file and saves the remaining content in a separate file. Note that this specific command does not explicitly remove blank lines using grep's built-in functionality; however, by specifying the pattern '.' (any character), grep will include all non-blank lines in the output. To specifically target and remove blank lines, you would need to use an additional tool or scripting language.",
+    "answer": "grep . filename > newfilename"
+  },
+  {
+    "question": "You have an external USB drive or key.\nApply this command (using the file path of anything on your device) and it will simulate the unplug of this device.\nIf you just want the port, just type :\necho $(sudo lshw -businfo | grep -B 1 -m 1 $(df \"/path/to/file\" | tail -1 | awk '{print $1}' | cut -c 6-8) | head -n 1 | awk '{print $1}' | cut -c 5- | tr \":\" \"-\")",
+    "answer": "echo $(sudo lshw -businfo | grep -B 1 -m 1 $(df \"/path/to/file\" | tail -1 | awk '{print $1}' | cut -c 6-8) | head -n 1 | awk '{print $1}' | cut -c 5- | tr \":\" \"-\") | sudo tee /sys/bus/usb/drivers/usb/unbind"
+  },
+  {
+    "question": "Dumps a MySQL database over a compressed SSH tunnel and uses it as input to mysql - i think that is the fastest and best way to migrate a DB to a new server!",
+    "answer": "mysqldump --add-drop-table --extended-insert --force --log-error=error.log -uUSER -pPASS OLD_DB_NAME | ssh -C user@newhost \"mysql -uUSER -pPASS NEW_DB_NAME\""
+  },
+  {
+    "question": "If you want to be notified when a long-running command is finished, but you have already started it: \nCTRL+Z\nfg; echo \"finished\" | sendmail me@example.com\nI use a script to post a tweet, which sends me a txt:\nfg; echo \"finished\" | tweet",
+    "answer": "<ctrl+z> fg; notify_me"
+  },
+  {
+    "question": "(relies on 'imagemagick')\nThis command will convert all .pdf files in a directory into a 800px (wide or height, whichever is smaller) image (with the aspect ratio kept) .jpg.\nIf the file is named 'example1.pdf' it will be named 'example1.jpg' when it is complete.\nThis is a VERY worthwhile command! People pay hundreds of dollars for this in the Windows world.\nMy .jpg files average between 150kB to 300kB, but your's may differ.",
+    "answer": "for file in `ls *.pdf`; do convert -verbose -colorspace RGB -resize 800 -interlace none -density 300 -quality 80 $file `echo $file | sed 's/\\.pdf$/\\.jpg/'`; done"
+  },
+  {
+    "question": "this exits bash without saving the history. unlike explicitly disabling the history in some way, this works anywhere, and it works if you decide *after* issuing the command you don't want logged, that you don't want it logged\n... $$ ( or ${$} ) is the pid of the current bash instance\nthis also works perfectly in shells that don't have $$ if you do something like\nkill -9 `readlink /proc/self`",
+    "answer": "kill -9 $$"
+  },
+  {
+    "question": "After the command is done, open the html file in a browser",
+    "answer": "lshw -html > hardware.html"
+  },
+  {
+    "question": "~$ tar --version\ntar (GNU tar) 1.20",
+    "answer": "tar --exclude-vcs -cf src.tar src/"
+  },
+  {
+    "question": "Long before tabbed terminals existed, people have been using Gnu screen to open many shells in a single text terminal. Combined with ssh, it gives you the ability to have many open shells with a single remote connection using the above options. If you detach with \"Ctrl-a d\" or if the ssh session is accidentally terminated, all processes running in your remote shells remain undisturbed, ready for you to reconnect. Other useful screen commands are \"Ctrl-a c\" (open new shell) and \"Ctrl-a a\" (alternate between shells). Read this quick reference for more screen commands: http://aperiodic.net/screen/quick_reference",
+    "answer": "ssh -t user@some.domain.com /usr/bin/screen -xRR"
+  },
+  {
+    "question": "sorts the files by integer megabytes, which should be enough to (interactively) find the space wasters. Now you can\ndush\nfor the above output,\ndush -n 3\nfor only the 3 biggest files and so on. It's always a good idea to have this line in your .profile or .bashrc",
+    "answer": "alias dush=\"du -sm *|sort -n|tail\""
+  },
+  {
+    "question": "This command is more portable than it's cousin netstat. It works well on all the BSDs, GNU/Linux, AIX and Mac OS X. You won't find lsof by default on Solaris or HPUX by default, but packages exist around the web for installation, if needed, and the command works as shown. This is the most portable command I can find that lists listening ports and their associated pid.",
+    "answer": "lsof -Pan -i tcp -i udp"
+  },
+  {
+    "question": "Even faster without the need for cut... :)",
+    "answer": "echo ${SSH_CLIENT%% *}"
+  },
+  {
+    "question": "If X is 5, it will about a number between 1 and 5 inclusive.\nThis works in bash and zsh.\nIf you want between 0 and 4, remove the +1.",
+    "answer": "echo $[RANDOM%X+1]"
+  },
+  {
+    "question": "This, \"find / -type f -size +500M,\" is used to search for all files in the entire file system (starting from the root directory \"/\") with a size larger than 500 megabytes. The \"-type f\" option specifies that only regular files should be considered, and the \"-size +500M\" option sets the minimum file size to more than 500 megabytes.",
+    "answer": "find / -type f -size +500M"
+  },
+  {
+    "question": "I often use it to find recently added ou removed device, or using find in /dev, or anything similar.\nJust run the command, plug the device, and wait to see him and only him",
+    "answer": "diff <(lsusb) <(sleep 3s && lsusb)"
+  },
+  {
+    "question": "While editing a source file in vim, or using vimdiff to compare two or more files, the ':TOhtml' command can be used to export each buffer as an html file, including syntax highlighting and vimdiff colorization. If you are in insert mode in vim, you will have to type\n:TOhtml\nThis will open a new buffer filled with html, which you can then save.",
+    "answer": ":TOhtml"
+  },
+  {
+    "question": "connects to host via ssh and displays the live transfer speed, directing all transferred data to /dev/null\nneeds pv installed \nDebian: 'apt-get install pv'   \nFedora: 'yum install pv'  (may need the 'extras' repository enabled)",
+    "answer": "yes | pv | ssh $host \"cat > /dev/null\""
+  },
+  {
+    "question": "Show Sample Output",
+    "answer": "nl"
+  },
+  {
+    "question": "Creates a full snapshot of your current vim session, including tabs, open buffers, cursor positions, everything. Can be resumed with vim -S . Useful for those times when you HAVE to close vim, but you don't want to lose all your hard-opened buffers and windows. The ! will cause vim to overwrite the file if it already exists. It is not necessary, but useful if you frequently save to the same file (like session.vim or something).",
+    "answer": ":mksession! <filename>"
+  },
+  {
+    "question": "PDF files are simultaneously wonderful and heinous. They are wonderful in being ubiquitous and mostly being cross platform. They are heinous in being very difficult to work with from the command line, search, grep, use only the text inside the PDF, or use outside of proprietary products. \nxpdf is a wonderful set of PDF tools. It is on many linux distros and can be installed on OS X. While primarily an open PDF viewer for X, xpdf has the tool \"pdftotext\" that can extract formated or unformatted text from inside a PDF that has text. This text stream can then be further processed by grep or other tool. The '-' after the file name directs output to stdout rather than to a text file the same name as the PDF. \nMake sure you use version 3.02 of pdftotext or later; earlier versions clipped lines. \nThe lines extracted from a PDF without the \"-layout\" option are very long. More paragraphs. Use just to test that a pattern exists in the file. With \"-layout\" the output resembles the lines, but it is not perfect.\nxpdf is available open source at http://www.foolabs.com/xpdf/",
+    "answer": "pdftotext [file] - | grep 'YourPattern'"
+  },
+  {
+    "question": "This, specifically the part \"date -d @1234567890,\" uses the date utility to convert a Unix timestamp (in this case, 1234567890) into a human-readable format. The output will display the date and time in a more easily understood form, such as \"Thursday, January 1, 2010, 12:31:30 PM\" (depending on your system's locale settings).",
+    "answer": "date -d @1234567890"
+  },
+  {
+    "question": "Generated XML files often are poorly formatted. Use this command to properly indent and normalize the file in-place.",
+    "answer": "tidy -xml -i -m [file]"
+  },
+  {
+    "question": "You got some results in two variables within your shell script and would like to find the differences? Changes in process lists, reworked file contents, ... . No need to write to temporary files. You can use all the diff parameters you'll need. Maybe anything like $ grep \"^>\" \nis helpful afterwards.",
+    "answer": "diff <(echo \"$a\") <(echo \"$b\")"
+  },
+  {
+    "question": "cat? dd? RTFM",
+    "answer": "sudo strings /dev/mem"
+  },
+  {
+    "question": "What happens here is we tell tar to create \"-c\" an archive of all files in current dir \".\" (recursively) and output the data to stdout \"-f -\". Next we specify the size \"-s\" to pv of all files in current dir. The \"du -sb . | awk ?{print $1}?\" returns number of bytes in current dir, and it gets fed as \"-s\" parameter to pv. Next we gzip the whole content and output the result to out.tgz file. This way \"pv\" knows how much data is still left to be processed and shows us that it will take yet another 4 mins 49 secs to finish.\nCredit: Peteris Krumins http://www.catonmat.net/blog/unix-utilities-pipe-viewer/\nShow Sample Output",
+    "answer": "tar -cf - . | pv -s $(du -sb . | awk '{print $1}') | gzip > out.tgz"
+  },
+  {
+    "question": "That command installs \"most\" and make this command as the default man reader. The \"most\" works like \"less\" (the current man reader), but it render colors for manpages and may do more things. Read \"man most\".\nYou can see a preview here: http://www.dicas-l.com.br/dicas-l/20090718.php",
+    "answer": "apt-get install most && update-alternatives --set pager /usr/bin/most"
+  },
+  {
+    "question": "(also works on Ubuntu) Copies the 'install,' 'hold,' 'deinstall' and 'purge' states of packages on the remote machine to be matched on the local machine.  Note: if packages were installed on the local machine that were never installed on the remote machine, they will not be deinstalled by this operation.",
+    "answer": "ssh remotehost 'dpkg --get-selections' | dpkg --set-selections && dselect install"
+  },
+  {
+    "question": "Run the alias command, then issue \nps aux | head\nand resize your terminal window (putty/console/hyperterm/xterm/etc) then issue the same command and you'll understand.\n${LINES:-`tput lines 2>/dev/null||echo -n 12`} \nInsructs the shell that if LINES is not set or null to use the output from `tput lines` ( ncurses based terminal access ) to get the number of lines in your terminal.  But furthermore, in case that doesn't work either, it will default to using the deafault of 12 (-2 = 10).\nThe default for HEAD is to output the first 10 lines, this alias changes the default to output the first x lines instead, where x is the number of lines currently displayed on your terminal - 2.  The -2 is there so that the top line displayed is the command you ran that used HEAD, ie the prompt.\nDepending on whether your PS1 and/or PROMPT_COMMAND output more than 1 line (mine is 3) you will want to increase from -2.  So with my prompt being the following, I need -7, or - 5 if I only want to display the commandline at the top. ( https://www.askapache.com/linux/bash-power-prompt/ )\n\n 275MB/748MB\n[7995:7993 - 0:186] 06:26:49 Thu Apr 08 [askapache@n1-backbone5:/dev/pts/0 +1] ~\n\n\nIn most shells the LINES variable is created automatically at login and updated when the terminal is resized (28 linux, 23/20 others for SIGWINCH) to contain the number of vertical lines that can fit in your terminal window.  Because the alias doesn't hard-code the current LINES but relys on the $LINES variable, this is a dynamic alias that will always work on a tty device.",
+    "answer": "alias head='head -n $((${LINES:-`tput lines 2>/dev/null||echo -n 12`} - 2))'"
+  },
+  {
+    "question": "Of course it requires import command, from imagemagick tools, but it's simpler to type, and imagemagick is usefull anyway.",
+    "answer": "DISPLAY=:0.0 import -window root /tmp/shot.png"
+  },
+  {
+    "question": "the -x option is for binding to a shell command",
+    "answer": "bind -x '\"\\C-l\":ls -l'"
+  },
+  {
+    "question": "This, using the `grep` utility with specific options (-Fx -f), compares two files (file1 and file2) to find lines that exist in both files. In simpler terms, it identifies the intersection between the contents of these two files by searching for exact matches from file1 within file2.",
+    "answer": "grep -Fx -f file1 file2"
+  },
+  {
+    "question": "Use this command to find out a list of committers sorted by the frequency of commits.",
+    "answer": "svn log -q|grep \"|\"|awk \"{print \\$3}\"|sort|uniq -c|sort -nr"
+  },
+  {
+    "question": "instead of writing:\nif [[ \"$1\" == \"$2\" ]]; then\n  echo \"$1 is equal $2\"\nelse\n  echo \"$1 differs from $2\"\nfi\ndo write:\n[[ \"$1\" == \"$2\" ]] && echo \"$1 is equal $2\" || echo \"$1 differs from $2\"",
+    "answer": "[[ test_condition ]] && if_true_do_this || otherwise_do_that"
+  },
+  {
+    "question": "This command will tell lynx to read keystrokes from the specified file - which can be used in a cronjob to auto-login on websites that give you points for logging in once a day *cough cough* (which is why I used -accept_all_cookies).\nFor creating your keystroke file, use:\nlynx -cmd_log yourfile",
+    "answer": "lynx -accept_all_cookies -cmd_script=/your/keystroke-file"
+  },
+  {
+    "question": "Show Sample Output",
+    "answer": "bash -x ./post_to_commandlinefu.sh"
+  },
+  {
+    "question": "This complex terminal command provides an overview of the active network connections by breaking it down into several steps. First, netstat -ant outputs a list of all active TCP and UDP connections along with their statistics. The output is then piped to awk, which extracts only the last field (type of connection) from each line. Next, grep -v '[a-z]' filters out any lines containing alphabetical characters, as these are likely headers or non-numeric results. The resultant list is sorted using sort and then unique connections are counted with uniq -c. In summary, this command lists the number of occurrences for each type of active network connection without displaying additional information.",
+    "answer": "netstat -ant | awk '{print $NF}' | grep -v '[a-z]' | sort | uniq -c"
+  },
+  {
+    "question": "Continue with:\nkillall -CONT -m firefox\nSuspends all Firefox Threads. Results in Zero CPU load.\nUseful when having 100+ Tabs open and you temporarily need the power elsewhere.\nBe careful - might produce RACE CONDITIONS or LOCKUPS in other processes or FF itself.\nmatching is case sensitive.",
+    "answer": "killall -STOP -m firefox"
+  }
+]
